@@ -1,14 +1,3 @@
-# RecordHelperForAEC
-
-This is a class for integrating the AEC-based environment of `pettingzoo` with the `gymnasium.experimental.wrappers.RecordVideoV0` from the `gymnasium` library.
-
-`RecordVideoV0` calls the superclass's `step`/`reset` method and attempts to unpack `obs`, `info` in the current class's `step`/`reset` method. However, an error occurs because the AEC-based environment returns None from the step function.
-
-This simple class resolves the issue, allowing for the recording of the environment with `RecordVideoV0` in the AEC setting.
-
-## Sample
-
-```python
 from pettingzoo.classic import connect_four_v3
 from gymnasium.experimental.wrappers import RecordVideoV0
 from record_helper_for_aec import RecordHelperForAEC
@@ -32,4 +21,3 @@ for agent in env.agent_iter():
 
     env.step(action)
 env.close()
-```
